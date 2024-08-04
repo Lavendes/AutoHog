@@ -1,0 +1,282 @@
+{
+  "circuit_name": "Example Circuit",
+  "ports": {
+    "a_2": {
+      "direction": "input",
+      "bits": ["23", "10"]
+    },
+    "a_3": {
+      "direction": "input",
+      "bits": ["23", "10"]
+    },
+    "a_4": {
+      "direction": "input",
+      "bits": ["23", "13"]
+    },
+    "a_5": {
+      "direction": "input",
+      "bits": ["13"]
+    },
+    "b_6": {
+      "direction": "input",
+      "bits": ["23", "10"]
+    },
+    "b_7": {
+      "direction": "input",
+      "bits": ["23", "10"]
+    },
+    "b_8": {
+      "direction": "input",
+      "bits": ["23", "13"]
+    },
+    "b_9": {
+      "direction": "input",
+      "bits": ["13"]
+    },
+    "c_10": {
+      "direction": "output",
+      "bits": ["10"]
+    },
+    "c_13": {
+      "direction": "output",
+      "bits": ["13"]
+    },
+    "c_14": {
+      "direction": "output",
+      "bits": ["13"]
+    },
+    "c_11": {
+      "direction": "output",
+      "bits": ["11"]
+    },
+    "c_12": {
+      "direction": "output",
+      "bits": ["11"]
+    }
+  },
+  "cells": {
+    "G0001": {
+      "cell_name": "10",
+      "hide_name": 1,
+      "type": "HomGateM",
+      "parameters": {
+      },
+      "attributes": {
+      },
+      "port_directions": {
+        "$a$": "input",
+        "$b$": "input",
+        "$c$": "input",
+        "$d$": "input",
+        "$e$": "output",
+        "$f$": "output",
+        "$g$": "output",
+        "$h$": "output"
+      },
+      "connections": {
+        "$a$": {
+          "port": "a_2"
+        },
+        "$b$": {
+          "port": "a_3"
+        },
+        "$c$": {
+          "port": "b_6"
+        },
+        "$d$": {
+          "port": "b_7"
+        },
+        "$e$": {
+          "port": "c_10"
+        },
+        "$f$": {
+          "cell": "11",
+          "port": "$a$"
+        },
+        "$g$": {
+          "cell": "11",
+          "port": "$b$"
+        },
+        "$h$": {
+          "cell": "11",
+          "port": "$c$"
+        }
+      },
+      "weights": {
+        "$a$": 8,
+        "$b$": 4,
+        "$c$": 2,
+        "$d$": 1
+      },
+      "tableT": {
+        "$e$": [0, 0, 1, 1, 0, 0, 1, 1, 1, 1, 0, 0, 1, 1, 0, 0],
+        "$f$": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 1, 1],
+        "$g$": [0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 1, 0, 1, 1, 1],
+        "$h$": [0, 1, 0, 1, 1, 0, 1, 0, 0, 1, 0, 1, 1, 0, 1, 0]
+      }
+    },
+    "G0002": {
+      "cell_name": "23",
+      "hide_name": 1,
+      "type": "HomGateS",
+      "parameters": {
+      },
+      "attributes": {
+      },
+      "port_directions": {
+        "$a$": "input",
+        "$b$": "input",
+        "$c$": "input",
+        "$d$": "input",
+        "$e$": "input",
+        "$f$": "input",
+        "$g$": "output"
+      },
+      "connections": {
+        "$a$": {
+          "port": "a_2"
+        },
+        "$b$": {
+          "port": "a_3"
+        },
+        "$c$": {
+          "port": "a_4"
+        },
+        "$d$": {
+          "port": "b_6"
+        },
+        "$e$": {
+          "port": "b_7"
+        },
+        "$f$": {
+          "port": "b_8"
+        },
+        "$g$": {
+          "cell": "13",
+          "port": "$e$"
+        }
+      },
+      "weights": {
+        "$a$": 1,
+        "$b$": 2,
+        "$c$": 8,
+        "$d$": 1,
+        "$e$": 2,
+        "$f$": 8
+      },
+      "tableT": {
+        "$g$": [1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1]
+      }
+    },
+    "G0003": {
+      "cell_name": "13",
+      "hide_name": 1,
+      "type": "HomGateM",
+      "parameters": {
+      },
+      "attributes": {
+      },
+      "port_directions": {
+        "$a$": "input",
+        "$b$": "input",
+        "$c$": "input",
+        "$d$": "input",
+        "$e$": "input",
+        "$f$": "output",
+        "$g$": "output",
+        "$h$": "output"
+      },
+      "connections": {
+        "$a$": {
+          "port": "a_4"
+        },
+        "$b$": {
+          "port": "a_5"
+        },
+        "$c$": {
+          "port": "b_8"
+        },
+        "$d$": {
+          "port": "b_9"
+        },
+        "$e$": {
+          "cell": "23",
+          "port": "$g$"
+        },
+        "$f$": {
+          "port": "c_13"
+        },
+        "$g$": {
+          "port": "c_14"
+        },
+        "$h$": {
+          "cell": "11",
+          "port": "$d$"
+        }
+      },
+      "weights": {
+        "$a$": 16,
+        "$b$": 8,
+        "$c$": 4,
+        "$d$": 2,
+        "$e$": 1
+      },
+      "tableT": {
+        "$f$": [1, 0, 0, 1, 1, 0, 0, 1, 0, 1, 1, 0, 0, 1, 1, 0, 1, 0, 0, 1, 1, 1, 0, 0, 0, 1, 1, 0, 0, 0, 1, 1],
+        "$g$": [0, 0, 1, 0, 0, 0, 1, 0, 1, 0, 1, 1, 1, 0, 1, 1, 0, 0, 1, 0, 0, 0, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1],
+        "$h$": [0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 0]
+      }
+    },
+    "G0004": {
+      "cell_name": "11",
+      "hide_name": 1,
+      "type": "HomGateM",
+      "parameters": {
+      },
+      "attributes": {
+      },
+      "port_directions": {
+        "$a$": "input",
+        "$b$": "input",
+        "$c$": "input",
+        "$d$": "input",
+        "$e$": "output",
+        "$f$": "output"
+      },
+      "connections": {
+        "$a$": {
+          "cell": "10",
+          "port": "$f$"
+        },
+        "$b$": {
+          "cell": "10",
+          "port": "$g$"
+        },
+        "$c$": {
+          "cell": "10",
+          "port": "$h$"
+        },
+        "$d$": {
+          "cell": "13",
+          "port": "$h$"
+        },
+        "$e$": {
+          "port": "c_11"
+        },
+        "$f$": {
+          "port": "c_12"
+        }
+      },
+      "weights": {
+        "$a$": 8,
+        "$b$": 4,
+        "$c$": 2,
+        "$d$": 1
+      },
+      "tableT": {
+        "$e$": [0, 0, 1, 1, 0, 0, 1, 1, 1, 1, 0, 0, 1, 1, 0, 0],
+        "$f$": [0, 1, 0, 1, 1, 0, 1, 0, 0, 1, 0, 1, 1, 0, 1, 0]
+      }
+    }
+  }
+}

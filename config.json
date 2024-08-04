@@ -1,0 +1,9 @@
+{
+    "_comment": "Circuit optimization parameters",
+    "_searchnum_up_comment": "Maximum number of inputs for Homgate (<=32)",
+    "searchnum_up": 7,
+    "_searchnum_low_comment": "Minimum number of inputs for Homgate (<=32)",
+    "searchnum_low": 5,
+    "_replace_num_comment": "Minimum number of gates to be replaced by one Homgate",
+    "replace_num": 3
+}

@@ -9,10 +9,11 @@ set(CMAKE_CXX_STANDARD_REQUIRED True)
 set(CMAKE_CXX_FLAGS "-march=native -O3 -g -funroll-loops -Wall -Wextra -pedantic -Wno-sign-compare")
 
 # Add TFHEpp library
-add_subdirectory(TFHEpp)
+add_subdirectory(thirdparties/TFHEpp)
 
 # Include directories
-include_directories(TFHEpp/src)
+include_directories(thirdparties/TFHEpp/src)
+include_directories(include)
 
 # Find and link OpenMP
 find_package(OpenMP)
