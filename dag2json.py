@@ -139,7 +139,7 @@ def dag_to_json(dag):
    
                     tableT_dict[port_name] = edge_data['tableT']
 
-            formatted_cells_value = f'G{count1:04}'
+            formatted_cells_value = f'C{count1:04}'
             circuit_dict["cells"][formatted_cells_value ] = {
                 "cell_name":str(node_id),
                 "hide_name": 1,
