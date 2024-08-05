@@ -24,7 +24,7 @@ int main(int argc, char* argv[])
     }
 
     string filename = argv[1];
-    string sequence = argv[2]; // 读取传递的序列
+    string sequence = argv[2]; 
     string filepath = "Test_Circuit/Json/" + filename + ".json";
     ifstream file(filepath);
     if (!file.is_open()) {
@@ -52,7 +52,6 @@ int main(int argc, char* argv[])
         }
     }
 
-    // 确保 sequence 的长度与 input_num 匹配
     if (sequence.length() != input_num) {
         cerr << "Error: Binary sequence length does not match input number" << endl;
         return 1;

@@ -90,10 +90,9 @@ def dag_to_json(dag):
                                else dag.predecessors(node_id))
             circuit_dict["ports"][node_id] = {
                 "direction": node_attrs['type'],
-                "bits": list( str(node_id) for node_id in list(connected_nodes)) # 转换为列表，因为返回的是迭代器
+                "bits": list( str(node_id) for node_id in list(connected_nodes)) 
             }
         else:
-            # 获取入边和出边
             count1 = count1 + 1
             in_edges = list(dag.in_edges(node_id, keys=True))
             in_edges = sorted(in_edges, key=lambda edge: dag.get_edge_data(edge[0], edge[1], edge[2])['sort'])

@@ -59,8 +59,8 @@ def rename_input(json_file, G):
     with open(json_file, 'r') as file:
         data = json.load(file)
     modules = data["modules"]
-    module_key = next(iter(modules))  # 获取第一个键
-    module = modules[module_key]  # 通过键获取值
+    module_key = next(iter(modules)) 
+    module = modules[module_key] 
     ports = module.get('ports', {})
     for port_name, port_attr in ports.items():
         if port_attr['direction'] == 'input':
@@ -68,11 +68,9 @@ def rename_input(json_file, G):
                 if bit_id in G:
                     original_attrs = G.nodes[bit_id]
                     new_id = f"{port_name}_{bit_id}"
-                    
-                    # 添加新节点并复制属性
+    
                     G.add_node(new_id, **original_attrs)
-                    
-                    # 重建与原节点连接的边
+
                     for predecessor, edge_data in G.pred[bit_id].items():
                         for key, attr in edge_data.items():
                             G.add_edge(predecessor, new_id, key=key, **attr)
@@ -80,7 +78,6 @@ def rename_input(json_file, G):
                         for key, attr in edge_data.items():
                             G.add_edge(new_id, successor, key=key, **attr)
                     
-                    # 删除原节点
                     G.remove_node(bit_id)
                     
 def define_io(dag, visited, node_id=None):
@@ -439,8 +436,6 @@ def gate_combine_1(dag, node_dic):
         
 def combine_candidates(dag, target_node):   
     candidate_nodes = deque(node for node in dag.nodes if len(list(dag.predecessors(node))) <= 5 and (dag.nodes[node]['type'] not in ['input', 'output', 'HomGateM', 'NOT', 'BUFF']))
-    # candidate_nodes = sorted(candidate_nodes, key=lambda x: abs(x - target_node))
-    # random.shuffle(candidate_nodes)
     merge_candidates = [target_node]  
     inputs = []
     for node in candidate_nodes:
@@ -526,7 +521,6 @@ def save_graph(graph, path):
        with open(path, 'wb') as f:
            pickle.dump(graph, f)
 
-#input
 dag = nx.MultiDiGraph()
 
 parser = argparse.ArgumentParser(description='Process some integers.')
@@ -540,14 +534,7 @@ dag = json_to_dag('Verilog_file/' + filename + '.json')
 inputnum_low = args.inputnum_low
 inputnum_up =  args.inputnum_up
 replace_num = args.replace_num
-# print(f"Filename: {args.filename}, Inputnum_up: {args.inputnum_up}, Inputnum_low: {args.inputnum_low}, Replace_num: {args.replace_num}")
 
-# filename = ''
-# dag = json_to_dag('build/circuit/c2670-1.json')
-# inputnum_low = 4
-# inputnum_up =  6
-# #gate size to be replaced
-# replace_num = 3
 dag_copy = dag.copy()
 rename_input('Verilog_file/' + filename + '.json',dag_copy)
 save_graph(dag_copy, 'Test_Circuit/Dag/'+ filename + '.pkl')
@@ -617,7 +604,6 @@ truthtable_dict.clear()
 input_dict.clear()
 sorted_node_ids.clear()
 
-#multi-input Homgate(>5 input)
 same_input_nodes = find_sameinput(dag)
 sorted_same_input = sort_dict_by_length({key: value for key, value in same_input_nodes.items() if len(value)>1})
 same_input_nodes_filt = []
@@ -637,8 +623,6 @@ for value in same_input_nodes_filt :
 same_input_nodes.clear()
 sorted_same_input.clear()
 
-
-#combine gate(<5 input)
 nodes_copy = list(dag.nodes)
 for node in nodes_copy:
     if node in dag.nodes:

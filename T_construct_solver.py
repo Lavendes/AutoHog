@@ -32,7 +32,6 @@ def Tconstruct_solver(truth_table):
         m = s.model()
         w_sol = [m[w_i].as_long() for w_i in w]
         a_sol = [m[a_i].as_long() for a_i in a]
-        # num = eval_size(a_sol) 
         min0 = min(a_sol)/2    
         for i in range(n):
             a_sol[i]=int(a_sol[i]/2 - min0)
