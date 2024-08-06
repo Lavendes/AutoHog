@@ -7,7 +7,7 @@ This code is the implementation of the paper "AutoHoG: Automating Homomorphic Ga
 To set up the environment for this project, you will need the following:
 ```
 git 
-clang or gcc >= 10
+clang
 cmake >= 3.16
 python >= 3.10
 ```
@@ -35,7 +35,7 @@ You can build the AutoHoG for your machine by executing the following commands:
 ```
 mkdir build
 cd build
-cmake .. 
+cmake -DCMAKE_CXX_COMPILER=clang++ ..
 make && cd -
 ```
 
