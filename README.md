@@ -27,7 +27,6 @@ cd ../thirdparties/yosys/ && make && cd -
 Install the required packages for python
 ```
 pip install -r requirements.txt
-
 ```
 
 ## Building AutohoG
@@ -55,7 +54,7 @@ You can modify the optimization parameters in `config.json` file to achieve diff
 
 ## Citation
 
-To cite AutpHog, please use the following BibTeX entries.
+To cite AutoHoG, please use the following BibTeX entries.
 ```
 @article{guan2024autohog,
   title={AutoHoG: Automating Homomorphic Gate Design for Large-Scale Logic Circuit Evaluation},
