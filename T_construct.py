@@ -2,7 +2,6 @@ from z3 import *
 import itertools as it
 import math
 import numpy as np
-from itertools import permutations
 from copy import deepcopy
 import time
 import random
@@ -49,12 +48,13 @@ def Tconstruction(truth_table,upper):
                     index[count].append(j)
                     flag[j] = 0
             count += 1
-   
+
+    #生成系数        
     if not index:
         return [0 for _ in range(len(index0))], None
     coeffs_values = 2**np.arange(input_num)
     w_values = []
-    for perm in permutations(coeffs_values, len(index)):
+    for perm in it.permutations(coeffs_values, len(index)):
         w = [0] * (input_num)
         for idx, group_values in enumerate(perm):
             for i in index[idx]:

@@ -4,6 +4,7 @@ This code is the implementation of the paper "AutoHoG: Automating Homomorphic Ga
 
 ## Requirements
 
+To set up the environment for this project, you will need the following:
 ```
 git 
 clang or gcc >= 10
@@ -11,18 +12,36 @@ cmake >= 3.16
 python >= 3.10
 ```
 
-## Building Autohog
-You can build the AutoHog for your machine by executing the following commands:
+### AutoHoG Dependencies
+
+Install [Yosys Open Synthesis Suite](https://github.com/YosysHQ/yosys/tree/main). This can be done with the following commands:
 ```
 git submodule update --init --recursive
-mkdir build
-cd build
-cmake .. 
-make
+sudo apt-get install build-essential clang lld bison flex \
+	libreadline-dev gawk tcl-dev libffi-dev git \
+	graphviz xdot pkg-config python3 libboost-system-dev \
+	libboost-python-dev libboost-filesystem-dev zlib1g-dev
 cd ../thirdparties/yosys/ && make && cd -
 ```
 
+Install the required packages for python
+```
+pip install -r requirements.txt
+
+```
+
+## Building AutohoG
+
+You can build the AutoHoG for your machine by executing the following commands:
+```
+mkdir build
+cd build
+cmake .. 
+make && cd -
+```
+
 ## Examples Test
+
 To generate an optimized homomorphic circuit netlist (.json) in `./Test_Circuit/Json`  from a Verilog file (.v)  in `./Verilog_file`, execute the following command:
 ```
 python run_circuit.py <circuit_name> 
@@ -35,6 +54,7 @@ python run_circuit.py <circuit_name> cal
 You can modify the optimization parameters in `config.json` file to achieve different optimization results.
 
 ## Citation
+
 To cite AutpHog, please use the following BibTeX entries.
 ```
 @article{guan2024autohog,

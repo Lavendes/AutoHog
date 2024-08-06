@@ -1,0 +1,4 @@
+more-itertools==8.10.0
+networkx==3.1
+numpy==1.24.2
+z3-solver==4.12.2.0
