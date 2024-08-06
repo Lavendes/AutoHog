@@ -21,10 +21,10 @@ sudo apt-get install build-essential clang lld bison flex \
 	libreadline-dev gawk tcl-dev libffi-dev git \
 	graphviz xdot pkg-config python3 libboost-system-dev \
 	libboost-python-dev libboost-filesystem-dev zlib1g-dev
-cd ../thirdparties/yosys/ && make && cd -
+cd ./thirdparties/yosys/ && make && cd -
 ```
 
-Install the required packages for python
+Install the required packages for python：
 ```
 pip install -r requirements.txt
 ```
