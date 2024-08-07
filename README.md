@@ -46,6 +46,11 @@ To generate an optimized homomorphic circuit netlist (.json) in `./Test_Circuit/
 python run_circuit.py <circuit_name> 
 ```
 
+For example, to optimize and execute `c432` circuit, use the following command:
+```
+python run_circuit.py c432
+```
+
 If the homomorphic circuit netlist has already been generated, use the following command to execute it:
 ```
 python run_circuit.py <circuit_name> cal
